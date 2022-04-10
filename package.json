@@ -16,7 +16,7 @@
   "main": "main.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node build/main.js",
+    "start": "node build/main.ts",
     "build": "tsc"
   },
   "engines": {
