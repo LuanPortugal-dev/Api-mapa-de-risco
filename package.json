@@ -9,18 +9,15 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "prisma": "^3.11.1",
-    "ts-node": "^10.7.0",
-    "tsconfig.json": "^1.0.11"
+    "ts-node": "^10.7.0"
   },
   "name": "api_data",
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node build/index.js",
+    "build": "tsc"
   },
   "engines": {
     "node": "v14.18.1"
