@@ -1,18 +1,18 @@
 import express from 'express'
 
-import { IncidentsLatLng } from './Database/Incidents/IncidentsLatLng';
+import { IncidentsLatLng } from '../Database/Incidents/IncidentsLatLng';
 
-import { BusinessAddress } from './Database/Business/BusinessAddress';
-import { BusinessCep } from './Database/Business/BusinessCep';
-import { BusinessLatLng } from './Database/Business/BusinessLatLng';
+import { BusinessAddress } from '../Database/Business/BusinessAddress';
+import { BusinessCep } from '../Database/Business/BusinessCep';
+import { BusinessLatLng } from '../Database/Business/BusinessLatLng';
 
-import { VehiclesAddress } from './Database/Vehicles/VehiclesAddress';
-import { VehiclesCep } from './Database/Vehicles/VehiclesCep';
-import { VehiclesLatLng } from './Database/Vehicles/VehiclesLatLng';
+import { VehiclesAddress } from '../Database/Vehicles/VehiclesAddress';
+import { VehiclesCep } from '../Database/Vehicles/VehiclesCep';
+import { VehiclesLatLng } from '../Database/Vehicles/VehiclesLatLng';
 
-import { CargoAddress } from './Database/Events/CargoAddress';
-import { CargoCep } from './Database/Events/CargoCep';
-import { CargoLatLng } from './Database/Events/CargoLatLng';
+import { CargoAddress } from '../Database/Events/CargoAddress';
+import { CargoCep } from '../Database/Events/CargoCep';
+import { CargoLatLng } from '../Database/Events/CargoLatLng';
 
 
 const app = express();
