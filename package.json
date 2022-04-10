@@ -13,10 +13,10 @@
   },
   "name": "api_data",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "main.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build/main.js",
     "build": "tsc"
   },
   "engines": {
