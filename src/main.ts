@@ -90,8 +90,8 @@ app.get('/:type/date/endereco/:address', async (req: any, res: any) => {
 
 })
 
-//https://api-risk-map.herokuapp.com/
+const port = process.env.PORT || 3000;
 
-app.listen('https://api-risk-map.herokuapp.com', () => {
+app.listen(port, () => {
     console.log('Estou ouvindo')
 })
