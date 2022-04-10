@@ -1,0 +1,110 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DB_CONNECTION")
+
+}
+
+//model Users {
+//  id            Int      @id @default(autoincrement())
+//  first_name    String?
+//  last_name     String?
+//  email         String   @unique
+//  salary        Int
+//  password_hash String?
+//  created_at    DateTime @default(now())
+//  updated_at    DateTime @default(now())
+//
+//  @@map("users")
+//}
+
+model Events {
+  id                Int     @id @default(autoincrement())
+  batch_origin      String? @db.VarChar(255)
+  title             String? @db.VarChar(255)
+  category          String? @db.VarChar(255)
+  description       String? @db.VarChar(255)
+  street            String? @db.VarChar(255)
+  city              String? @db.VarChar(255)
+  state             String? @db.VarChar(255)
+  lat               String? @db.VarChar(255)
+  lng               String? @db.VarChar(255)
+  logo_name         String? @db.VarChar(255)
+  zip_code          String? @db.VarChar(255)
+  zip_code_prefix   String? @db.VarChar(255)
+  zip_code_sufix    String? @db.VarChar(255)
+  formatted_address String? @db.Text
+  has_error         Int
+
+  @@map("events")
+}
+
+model Business {
+  id              Int      @id @default(autoincrement())
+  batch_origin    String?  @db.VarChar(255)
+  title           String?  @db.VarChar(255)
+  description     DateTime
+  year            String?  @db.VarChar(255)
+  time            String?  @db.VarChar(255)
+  time_course     String?  @db.VarChar(255)
+  street          String?  @db.VarChar(255)
+  number          String?  @db.VarChar(255)
+  district        String?  @db.VarChar(255)
+  city            String?  @db.VarChar(255)
+  state           String?  @db.VarChar(255)
+  type_location   String?  @db.VarChar(255)
+  lat             Float
+  lng             Float
+  logo_name       String?  @db.VarChar(255)
+  zip_code        String?  @db.VarChar(255)
+  zip_code_prefix String?  @db.VarChar(255)
+  zip_code_sufix  String?  @db.VarChar(255)
+
+  @@map("business")
+}
+
+model Vehicles {
+  id              Int      @id @default(autoincrement())
+  batch_origin    String?  @db.VarChar(255)
+  title           String?  @db.VarChar(255)
+  description     DateTime
+  year            String?  @db.VarChar(255)
+  time            String?  @db.VarChar(255)
+  time_course     String?  @db.VarChar(255)
+  street          String?  @db.VarChar(255)
+  number          String?  @db.VarChar(255)
+  district        String?  @db.VarChar(255)
+  city            String?  @db.VarChar(255)
+  state           String?  @db.VarChar(255)
+  brand           String?  @db.VarChar(255)
+  lat             Float
+  lng             Float
+  logo_name       String?  @db.VarChar(255)
+  zip_code        String?  @db.VarChar(255)
+  zip_code_prefix String?  @db.VarChar(255)
+  zip_code_sufix  String?  @db.VarChar(255)
+
+  @@map("vehicles")
+}
+
+model Incidents {
+  id             Int      @id @default(autoincrement())
+  province       String?  @db.VarChar(255)
+  county         String?  @db.VarChar(255)
+  incident_cause String?  @db.VarChar(255)
+  incident_type  String?  @db.VarChar(255)
+  classification String?  @db.VarChar(255)
+  day_phase      String?  @db.VarChar(255)
+  latitude       Float
+  longitude      Float
+  created_at     DateTime
+
+
+  @@map("incidents")
+}
