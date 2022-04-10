@@ -92,6 +92,6 @@ app.get('/:type/date/endereco/:address', async (req: any, res: any) => {
 
 //https://api-risk-map.herokuapp.com/
 
-app.listen(8080, () => {
+app.listen('https://api-risk-map.herokuapp.com', () => {
     console.log('Estou ouvindo')
 })
