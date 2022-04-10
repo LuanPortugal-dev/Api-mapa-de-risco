@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node build/main.ts",
-    "build": "tsc"
+    "build": "tsc && npm run start"
   },
   "engines": {
     "node": "v14.18.1"
