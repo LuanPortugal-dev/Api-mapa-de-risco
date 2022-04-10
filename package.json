@@ -13,7 +13,7 @@
   },
   "name": "api_data",
   "version": "1.0.0",
-  "main": "main.ts",
+  "main": "main.js",
   "license": "MIT",
   "scripts": {
     "start": "node build/main.js",
