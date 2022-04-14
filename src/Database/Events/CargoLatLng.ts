@@ -8,21 +8,21 @@ export async function CargoLatLng(lats: Number, lngs: Number) {
 
   const [latitude_start, latitude_end, longitude_start, longitude_end] = (getDistanceFromLatLonInKm(lats, lngs))
 
-  const dataBusiness = await prisma.events.findMany({
+  const latLngCargo = await prisma.events.findMany({
     where: {
       has_error: 0,
       lat: {
-        lte: latitude_start,
-        gte: longitude_start
+        lte: String(latitude_start),
+        gte: String(longitude_start)
       },
       lng: {
-        lte: latitude_end,
-        gte: longitude_end
+        lte: String(latitude_end),
+        gte: String(longitude_end)
       }
     }
   })
-  console.log(dataBusiness)
-  return dataBusiness
+  console.log(latLngCargo)
+  return latLngCargo
 }
 
 //Business()

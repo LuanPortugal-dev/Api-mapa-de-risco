@@ -6,9 +6,9 @@ const prisma = new PrismaClient({ datasources: { db: { url: process.env.DB_CONNE
 
 export async function IncidentsLatLng(lats: any, lngs: any) {
 
-  const [latitude_start, latitude_end, longitude_start, longitude_end] = (getDistanceFromLatLonInKm(lats, lngs))
-  
-  const dataIncidents = await prisma.incidents.findMany({
+  const [latitude_start, latitude_end, longitude_start, longitude_end] = getDistanceFromLatLonInKm(lats, lngs)
+
+  const latLngIncidents = await prisma.incidents.findMany({
     where: {
       latitude: {
         lte: parseFloat(latitude_start),
@@ -17,10 +17,10 @@ export async function IncidentsLatLng(lats: any, lngs: any) {
       longitude: {
         lte: parseFloat(latitude_end),
         gte: parseFloat(longitude_end)
-      } 
-    } 
+      }
+    }
   })
-return dataIncidents
+  return latLngIncidents
 }
 
 

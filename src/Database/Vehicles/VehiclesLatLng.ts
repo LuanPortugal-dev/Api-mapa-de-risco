@@ -7,9 +7,9 @@ const prisma = new PrismaClient()
 export async function VehiclesLatLng(date: string, lats: any, lngs: any) {
 
   const [latitude_start, latitude_end, longitude_start, longitude_end] = getDistanceFromLatLonInKm(lats, lngs)
-  
-  const dataVehicles = await prisma.vehicles.findMany({
-    take: 1000,
+
+  const latLngVehicles = await prisma.vehicles.findMany({
+    take: 100,
     where: {
       year: date,
       lat: {
@@ -19,12 +19,10 @@ export async function VehiclesLatLng(date: string, lats: any, lngs: any) {
       lng: {
         lte: parseFloat(latitude_end),
         gte: parseFloat(longitude_end)
-      } 
-    } 
+      }
+    }
   })
-
-console.log(dataVehicles);
-return dataVehicles
+  return latLngVehicles
 }
 
 

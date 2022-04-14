@@ -1,17 +1,28 @@
 import { PrismaClient } from '@prisma/client'
 
+import { GetLatLngWithCep } from '../../controllers/Controllers_Address'
+
 const prisma = new PrismaClient()
 
 export async function VehiclesAddress(date: string, address: string) {
-  const dataBusiness = await prisma.vehicles.findMany({
+
+  const [latitude_start, latitude_end, longitude_start, longitude_end] = await GetLatLngWithCep(address)
+
+  const addressVehicles = await prisma.vehicles.findMany({
+    take: 100,
     where: {
       year: date,
-      street: address,
-
-    }
+      lat: {
+        lte: parseFloat(latitude_start),
+        gte: parseFloat(longitude_start)
+      },
+      lng: {
+        lte: parseFloat(latitude_end),
+        gte: parseFloat(longitude_end)
+      } 
+    } 
   })
-  console.log(dataBusiness)
-  return dataBusiness
+  return addressVehicles
 }
 
 //Business()

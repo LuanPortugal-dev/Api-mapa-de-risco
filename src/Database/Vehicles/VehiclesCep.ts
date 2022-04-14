@@ -1,16 +1,28 @@
 import { PrismaClient } from '@prisma/client'
 
+import { GetLatLngWithCep } from '../../controllers/Controllers_Cep'
+
 const prisma = new PrismaClient()
 
 export async function VehiclesCep(date: string, cep: string ) {
-  const dataBusiness = await prisma.vehicles.findMany({
+
+  const [latitude_start, latitude_end, longitude_start, longitude_end] = await GetLatLngWithCep(cep)
+
+  const cepVehicles = await prisma.vehicles.findMany({
+    take: 100,
     where: {
       year: date,
-      zip_code_prefix: cep,
+      lat: {
+        lte: Number(latitude_start),
+        gte: Number(longitude_start)
+      },
+      lng: {
+        lte: Number(latitude_end),
+        gte: Number(longitude_end)
+      }
     }
   })
-  console.log(dataBusiness)
-  return dataBusiness
+  return cepVehicles
 }
 
 //Business()
