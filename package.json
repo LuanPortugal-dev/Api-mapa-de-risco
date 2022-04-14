@@ -18,9 +18,9 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "dev": "ts-node src/main.ts",
-    "start": "node src/main.ts",
-    "build": "tsc"
+    "start": "node ./dist/main.js"
   },
   "engines": {
     "node": "v14.18.1"
