@@ -1,5 +1,7 @@
 import express from 'express'
 
+import cors from 'cors'
+
 import { IncidentsLatLng } from './Database/Incidents/IncidentsLatLng'
 
 import { BusinessAddress } from './Database/Business/BusinessAddress'
@@ -18,6 +20,7 @@ import { CargoLatLng } from './Database/Events/CargoLatLng'
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/:type/:date/latlng/:lat/:lng', async (req: any, res: any) => {
 
@@ -78,8 +81,8 @@ app.get('/:type/:date/endereco/:address', async (req: any, res: any) => {
     }
 })
 
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+app.listen(3000, () => {
     console.log('Estou ouvindo')
 })

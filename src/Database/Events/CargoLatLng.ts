@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 export async function CargoLatLng(lats: Number, lngs: Number) {
 
-  const [latitude_start, latitude_end, longitude_start, longitude_end] = (getDistanceFromLatLonInKm(lats, lngs))
+  const [latitude_start, latitude_end, longitude_start, longitude_end, results] = (getDistanceFromLatLonInKm(lats, lngs))
 
   const latLngCargo = await prisma.events.findMany({
     where: {
@@ -21,7 +21,7 @@ export async function CargoLatLng(lats: Number, lngs: Number) {
       }
     }
   })
-  console.log(latLngCargo)
+  console.log(results)
   return latLngCargo
 }
 

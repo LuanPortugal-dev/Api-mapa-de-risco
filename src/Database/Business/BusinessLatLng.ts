@@ -9,6 +9,7 @@ export async function BusinessLatLng(date: string, lats: any, lngs: any) {
   const [latitude_start, latitude_end, longitude_start, longitude_end, results] = getDistanceFromLatLonInKm(lats, lngs)
 
   const latLngBusiness = await prisma.business.findMany({
+    take:900,
     where: {
       year: date,
       lat: {

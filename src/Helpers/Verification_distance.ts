@@ -9,7 +9,6 @@ export function getDistanceFromLatLonInKm(latitude: any, longitude: any): return
     const longitude_start = longitude - VARIATOR
     const longitude_end = parseFloat(longitude) + VARIATOR
 
-    "use strict";
     let deg2rad = function (deg: any) { return deg * (Math.PI / 180); },
         R = 6371,
         dLat = deg2rad(latitude_start -  latitude_end),
