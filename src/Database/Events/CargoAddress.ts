@@ -9,6 +9,7 @@ export async function CargoAddress(address: string) {
   const [latitude_start, latitude_end, longitude_start, longitude_end] = await GetLatLngWithCep(address)
 
   const addressCargo = await prisma.events.findMany({
+    take:100,
     where: {
       has_error: 0,
       lat: {
