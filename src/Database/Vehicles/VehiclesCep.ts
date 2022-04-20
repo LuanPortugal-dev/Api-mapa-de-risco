@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 
-import { GetLatLngWithCep } from '../../controllers/Controllers_Cep'
+import { GetLatLngWithCep } from '../../Helpers/Get_LatLng_Cep'
 
 const prisma = new PrismaClient()
 

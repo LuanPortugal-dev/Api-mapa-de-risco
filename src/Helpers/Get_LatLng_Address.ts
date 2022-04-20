@@ -1,6 +1,6 @@
 import { App } from '../services/Get_lat_lng'
 
-import { getDistanceFromLatLonInKm } from '../Helpers/Verification_distance'
+import { getDistanceFromLatLonInKm } from './Verification_distance'
 
 export async function GetLatLngWithCep(address:any) {
 

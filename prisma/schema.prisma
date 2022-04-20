@@ -26,8 +26,6 @@ datasource db {
 
 model Events {
   id                Int     @id @default(autoincrement())
-  batch_origin      String? @db.VarChar(255)
-  title             String? @db.VarChar(255)
   category          String? @db.VarChar(255)
   description       String? @db.VarChar(255)
   street            String? @db.VarChar(255)
@@ -35,11 +33,9 @@ model Events {
   state             String? @db.VarChar(255)
   lat               String? @db.VarChar(255)
   lng               String? @db.VarChar(255)
-  logo_name         String? @db.VarChar(255)
   zip_code          String? @db.VarChar(255)
   zip_code_prefix   String? @db.VarChar(255)
   zip_code_sufix    String? @db.VarChar(255)
-  formatted_address String? @db.Text
   has_error         Int
 
   @@map("events")
@@ -47,21 +43,16 @@ model Events {
 
 model Business {
   id              Int      @id @default(autoincrement())
-  batch_origin    String?  @db.VarChar(255)
-  title           String?  @db.VarChar(255)
   description     DateTime
   year            String?  @db.VarChar(255)
   time            String?  @db.VarChar(255)
   time_course     String?  @db.VarChar(255)
   street          String?  @db.VarChar(255)
-  number          String?  @db.VarChar(255)
   district        String?  @db.VarChar(255)
   city            String?  @db.VarChar(255)
   state           String?  @db.VarChar(255)
-  type_location   String?  @db.VarChar(255)
   lat             Float
   lng             Float
-  logo_name       String?  @db.VarChar(255)
   zip_code        String?  @db.VarChar(255)
   zip_code_prefix String?  @db.VarChar(255)
   zip_code_sufix  String?  @db.VarChar(255)
@@ -71,8 +62,6 @@ model Business {
 
 model Vehicles {
   id              Int      @id @default(autoincrement())
-  batch_origin    String?  @db.VarChar(255)
-  title           String?  @db.VarChar(255)
   description     DateTime
   year            String?  @db.VarChar(255)
   time            String?  @db.VarChar(255)
@@ -82,10 +71,8 @@ model Vehicles {
   district        String?  @db.VarChar(255)
   city            String?  @db.VarChar(255)
   state           String?  @db.VarChar(255)
-  brand           String?  @db.VarChar(255)
   lat             Float
   lng             Float
-  logo_name       String?  @db.VarChar(255)
   zip_code        String?  @db.VarChar(255)
   zip_code_prefix String?  @db.VarChar(255)
   zip_code_sufix  String?  @db.VarChar(255)
