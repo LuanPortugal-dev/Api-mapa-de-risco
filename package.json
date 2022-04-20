@@ -20,7 +20,7 @@
   "main": "main.js",
   "license": "MIT",
   "scripts": {
-    "pm2": "NODE_ENV=production pm2 start 'ts-node -r dotenv/config src/main.ts --name=Api_risk_map --watch",
+    "pm2": "NODE_ENV=production pm2 start 'ts-node -r dotenv/config src/main.ts' --name=Api_risk_map --watch",
     "build": "tsc",
     "dev": "ts-node src/main.ts",
     "start": "node ./dist/main.js"
