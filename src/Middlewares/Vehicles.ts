@@ -13,8 +13,6 @@ export async function ResultVehicles(date: any, data: any) {
 
     const [lat, lng] = data.split(',')
 
-    console.log(lat, lng)
-
     if (lat && lng) {
         const resultLatLng = await VehiclesLatLng(date, lat, lng)
         return resultLatLng

@@ -25,25 +25,26 @@ datasource db {
 //}
 
 model Events {
-  id                Int     @id @default(autoincrement())
-  category          String? @db.VarChar(255)
-  description       String? @db.VarChar(255)
-  street            String? @db.VarChar(255)
-  city              String? @db.VarChar(255)
-  state             String? @db.VarChar(255)
-  lat               String? @db.VarChar(255)
-  lng               String? @db.VarChar(255)
-  zip_code          String? @db.VarChar(255)
-  zip_code_prefix   String? @db.VarChar(255)
-  zip_code_sufix    String? @db.VarChar(255)
-  has_error         Int
+  id              Int      @id @default(autoincrement())
+  category        String?  @db.VarChar(255)
+  description     DateTime @db.Date
+  year            String?  @db.VarChar(255)
+  street          String?  @db.VarChar(255)
+  city            String?  @db.VarChar(255)
+  state           String?  @db.VarChar(255)
+  lat             Float
+  lng             Float
+  zip_code        String?  @db.VarChar(255)
+  zip_code_prefix String?  @db.VarChar(255)
+  zip_code_sufix  String?  @db.VarChar(255)
+  has_error       Int
 
   @@map("events")
 }
 
 model Business {
   id              Int      @id @default(autoincrement())
-  description     DateTime
+  description     DateTime @db.Date
   year            String?  @db.VarChar(255)
   time            String?  @db.VarChar(255)
   time_course     String?  @db.VarChar(255)
@@ -62,7 +63,7 @@ model Business {
 
 model Vehicles {
   id              Int      @id @default(autoincrement())
-  description     DateTime
+  description     DateTime @db.Date
   year            String?  @db.VarChar(255)
   time            String?  @db.VarChar(255)
   time_course     String?  @db.VarChar(255)

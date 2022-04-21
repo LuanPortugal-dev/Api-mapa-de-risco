@@ -22,7 +22,6 @@ export async function BusinessAddress(date: string, address: string) {
       } 
     } 
   })
-  console.log(addressBusiness)
   return addressBusiness
 }
 

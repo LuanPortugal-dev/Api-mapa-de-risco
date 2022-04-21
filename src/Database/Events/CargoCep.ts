@@ -4,7 +4,7 @@ import { GetLatLngWithCep } from '../../Helpers/Get_LatLng_Cep'
 
 const prisma = new PrismaClient()
 
-export async function CargoCep(cep: string ) {
+export async function CargoCep(date: string, cep: string ) {
 
   const [latitude_start, latitude_end, longitude_start, longitude_end] = await GetLatLngWithCep(cep)
   
@@ -12,17 +12,17 @@ export async function CargoCep(cep: string ) {
     take:100,
     where: {
       has_error: 0,
+      year: date,
       lat: {
-        lte: String(latitude_start),
-        gte: String(longitude_start)
+        lte: Number(latitude_start) ,
+        gte: Number(longitude_start) 
       },
       lng: {
-        lte: String(latitude_end),
-        gte: String(longitude_end)
+        lte: Number(latitude_end) ,
+        gte: Number(longitude_end) 
       } 
     } 
   })
-  console.log(cepCargp)
   return cepCargp
 }
 

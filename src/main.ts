@@ -21,17 +21,15 @@ app.get('/:type/:date/:data', async (req: any, res: any) => {
     }
 
     if (req.params.type == 'vehicle_theft') {
-        const dataVehicles = ResultVehicles(req.params.date, req.params.data)
+        const dataVehicles = (ResultVehicles(req.params.date, req.params.data))
         return res.json(await dataVehicles)
     }
 
     if (req.params.type == 'cargo_theft') {
-        const dataEvents = ResultCargo(req.params.data)
+        const dataEvents = ResultCargo(req.params.date, req.params.data)
         return res.json(await dataEvents)
     }
 })
-
-//const port = process.env.PORT || 4000;
 
 app.listen(4000, () => {
     console.log('Estou ouvindo')

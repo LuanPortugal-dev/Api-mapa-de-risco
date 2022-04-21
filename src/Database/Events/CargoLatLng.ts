@@ -4,20 +4,21 @@ import { getDistanceFromLatLonInKm } from '../../Helpers/Verification_distance'
 
 const prisma = new PrismaClient()
 
-export async function CargoLatLng(lats: Number, lngs: Number) {
+export async function CargoLatLng(date: string, lats: Number, lngs: Number) {
 
   const [latitude_start, latitude_end, longitude_start, longitude_end, results] = (getDistanceFromLatLonInKm(lats, lngs))
 
   const latLngCargo = await prisma.events.findMany({
     take:100,
     where: {
+      year: date,
       lat: {
-        lte: latitude_start,
-        gte: longitude_start
+        lte: parseFloat(latitude_start),
+        gte: parseFloat(longitude_start)
       },
       lng: {
-        lte: latitude_end,
-        gte: longitude_end
+        lte: parseFloat(latitude_end),
+        gte: parseFloat(longitude_end)
       }
     }
   })

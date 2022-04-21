@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 export async function BusinessLatLng(date: string, lats: any, lngs: any) {
 
-  const [latitude_start, latitude_end, longitude_start, longitude_end, results] = getDistanceFromLatLonInKm(lats, lngs)
+  const [latitude_start, latitude_end, longitude_start, longitude_end] = getDistanceFromLatLonInKm(lats, lngs)
 
   const latLngBusiness = await prisma.business.findMany({
     take:100,
@@ -23,7 +23,6 @@ export async function BusinessLatLng(date: string, lats: any, lngs: any) {
     } 
   })
 
-console.log(results);
 return latLngBusiness
 }
 

@@ -4,7 +4,7 @@ import { GetLatLngWithCep } from '../../Helpers/Get_LatLng_Address'
 
 const prisma = new PrismaClient()
 
-export async function CargoAddress(address: string) {
+export async function CargoAddress(date: string, address: string) {
 
   const [latitude_start, latitude_end, longitude_start, longitude_end] = await GetLatLngWithCep(address)
 
@@ -12,17 +12,17 @@ export async function CargoAddress(address: string) {
     take:100,
     where: {
       has_error: 0,
+      year: date,
       lat: {
-        lte: latitude_start,
-        gte: longitude_start
+        lte: parseFloat(latitude_start),
+        gte: parseFloat(longitude_start)
       },
       lng: {
-        lte: latitude_end,
-        gte: longitude_end
+        lte: parseFloat(latitude_end),
+        gte: parseFloat(longitude_end)
       } 
     } 
   })
-  console.log(addressCargo)
   return addressCargo
 }
 
