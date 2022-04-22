@@ -14,7 +14,6 @@ export async function CargoCep(date: string, cep: string) {
   ] = await GetLatLngWithCep(cep)
 
   const cepCargo = await prisma.events.findMany({
-    take: 100,
     where: {
       has_error: 0,
       year: date,

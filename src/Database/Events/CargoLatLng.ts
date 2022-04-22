@@ -9,7 +9,6 @@ export async function CargoLatLng(date: string, lats: Number, lngs: Number) {
   const [latitude_start, latitude_end, longitude_start, longitude_end] = getVariation(lats, lngs)
 
   const latLngCargo = await prisma.events.findMany({
-    take: 100,
     where: {
       year: date,
       lat: {

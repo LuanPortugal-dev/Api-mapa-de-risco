@@ -14,7 +14,6 @@ export async function VehiclesCep(date: string, cep: string ) {
   ] = await GetLatLngWithCep(cep)
 
   const cepVehicles = await prisma.vehicles.findMany({
-    take: 100,
     where: {
       year: date,
       lat: {

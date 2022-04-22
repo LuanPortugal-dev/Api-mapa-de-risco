@@ -9,7 +9,6 @@ export async function BusinessLatLng(date: string, lats: any, lngs: any) {
   const [latitude_start, latitude_end, longitude_start, longitude_end] = getVariation(lats, lngs)
 
   const latLngBusiness = await prisma.business.findMany({
-    take:100,
     where: {
       year: date,
       lat: {

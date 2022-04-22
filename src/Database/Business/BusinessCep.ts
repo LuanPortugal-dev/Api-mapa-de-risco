@@ -14,7 +14,6 @@ export async function BusinessCep(date: any, cep: any) {
   ] = await GetLatLngWithCep(cep)
 
   const cepBusiness = await prisma.business.findMany({
-    take:100,
     where: {
       year: date,
       lat: {
