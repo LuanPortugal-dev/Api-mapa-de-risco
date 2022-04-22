@@ -1,12 +1,12 @@
 import { PrismaClient } from '@prisma/client'
 
-import { getDistanceFromLatLonInKm } from '../../Helpers/Verification_distance'
+import { getVariation, getDistanceFromLatLonInKm } from '../../Helpers/Verification_distance'
 
 const prisma = new PrismaClient()
 
 export async function BusinessLatLng(date: string, lats: any, lngs: any) {
 
-  const [latitude_start, latitude_end, longitude_start, longitude_end] = getDistanceFromLatLonInKm(lats, lngs)
+  const [latitude_start, latitude_end, longitude_start, longitude_end] = getVariation(lats, lngs)
 
   const latLngBusiness = await prisma.business.findMany({
     take:100,
@@ -23,7 +23,17 @@ export async function BusinessLatLng(date: string, lats: any, lngs: any) {
     } 
   })
 
-return latLngBusiness
+  return latLngBusiness.map( business => {
+    const lat_end = business.lat
+    const lng_end = business.lng
+
+    const distance = getDistanceFromLatLonInKm(lats, lngs, lat_end, lng_end)
+
+    if (distance < 1.00)
+      return business
+
+    return 
+  })
 }
 
 
