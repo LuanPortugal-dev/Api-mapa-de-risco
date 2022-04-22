@@ -13,12 +13,12 @@ export async function BusinessAddress(date: string, address: string) {
     where: {
       year: date,
       lat: {
-        lte: parseFloat(latitude_start),
-        gte: parseFloat(longitude_start)
+        lte: latitude_start,
+        gte: longitude_start
       },
       lng: {
-        lte: parseFloat(latitude_end),
-        gte: parseFloat(longitude_end)
+        lte: latitude_end,
+        gte: longitude_end
       } 
     } 
   })

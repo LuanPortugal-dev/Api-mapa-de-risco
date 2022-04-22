@@ -14,12 +14,12 @@ export async function CargoAddress(date: string, address: string) {
       has_error: 0,
       year: date,
       lat: {
-        lte: parseFloat(latitude_start),
-        gte: parseFloat(longitude_start)
+        lte: latitude_start,
+        gte: longitude_start
       },
       lng: {
-        lte: parseFloat(latitude_end),
-        gte: parseFloat(longitude_end)
+        lte: latitude_end,
+        gte: longitude_end
       } 
     } 
   })

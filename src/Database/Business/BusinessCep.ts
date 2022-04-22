@@ -13,12 +13,12 @@ export async function BusinessCep(date: any, cep: any) {
     where: {
       year: date,
       lat: {
-        lte: Number(latitude_start),
-        gte: Number(longitude_start)
+        lte: latitude_start,
+        gte: longitude_start
       },
       lng: {
-        lte: Number(latitude_end),
-        gte: Number(longitude_end)
+        lte: latitude_end,
+        gte: longitude_end
       }
     }
   })

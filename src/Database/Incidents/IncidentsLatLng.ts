@@ -11,12 +11,12 @@ export async function IncidentsLatLng(lats: any, lngs: any) {
   const latLngIncidents = await prisma.incidents.findMany({
     where: {
       latitude: {
-        lte: parseFloat(latitude_start),
-        gte: parseFloat(longitude_start)
+        lte: latitude_start,
+        gte: longitude_start
       },
       longitude: {
-        lte: parseFloat(latitude_end),
-        gte: parseFloat(longitude_end)
+        lte: latitude_end,
+        gte: longitude_end
       }
     }
   })
